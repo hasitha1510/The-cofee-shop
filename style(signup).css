@@ -4,7 +4,7 @@ body{
     display:flex;
     justify-content: center;
     align-items:center;
-    background-image: url("signup\ html\ bg.jpg");
+    background-image: url("images/signup html bg.jpg");
     background-size: cover; 
     background-color: rgba(0, 0, 0, 0.5); /* Example: Semi-transparent black */
     background-blend-mode: overlay; /* Blends color with image */
