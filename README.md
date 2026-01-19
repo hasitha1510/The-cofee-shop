@@ -30,18 +30,31 @@ This project demonstrates frontend fundamentals such as page structuring, stylin
 ## 📂 Project Structure
 
 coffee-website/
+
 │
+
 ├── index.html
+
 ├── cart.html
+
 ├── checkout.html
+
 ├── style.css
+
 ├── main.js
+
 ├── cart.js
+
 ├── images/
+
 │ ├── p1.png
+
 │ ├── p3.png
+
 │ ├── p4.png
+
 │ └── p5.png
+
 └── README.md
 
 
@@ -49,7 +62,7 @@ coffee-website/
 
 ## 🌐 Live Demo
 
-👉 https://your-username.github.io/your-repo-name/
+👉 https://hasitha1510.github.io/The-cofee-shop/
 
 ---
 
