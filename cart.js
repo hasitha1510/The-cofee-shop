@@ -98,11 +98,12 @@ function updateSummary(){
 
 /* ===== Recommendations (use your real product images) ===== */
 const recs = [
-  { name: "Arabian Coffee Beans", image: "p1.png", price: 15 },
-  { name: "German Coffee Beans",  image: "p3.png", price: 20 },
-  { name: "French Coffee Beans",   image: "p4.png", price: 22 },
-  { name: "English Coffee Beans",  image: "p5.png", price: 17 }
+  { name: "Arabian Coffee Beans", image: "images/p1.png", price: 15 },
+  { name: "German Coffee Beans",  image: "images/p3.png", price: 20 },
+  { name: "French Coffee Beans",  image: "images/p4.png", price: 22 },
+  { name: "English Coffee Beans", image: "images/p5.png", price: 17 }
 ];
+
 
 function renderRecs(){
   // if there is no container for recommendations, do nothing

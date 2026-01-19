@@ -58,23 +58,44 @@
   /* ----------------------- Storage helpers ----------------------- */
 
   function addProductToCart({ name, image, price, quantity = 1 }) {
-    const cart = safeParse('cart', []);
-    const existing = cart.find(i => i.name === name);
-    if (existing) {
-      existing.quantity = (Number(existing.quantity) || 0) + Number(quantity || 1);
-    } else {
-      cart.push({
-        name,
-        image,
-        price: Number(price),
-        quantity: Number(quantity || 1)
-      });
+  const cart = safeParse('cart', []);
+
+  // ✅ normalize image path FIRST
+  const fixedImage =
+    image && image.startsWith('images/')
+      ? image
+      : image
+      ? 'images/' + image.replace(/^\/+|^Images\/+/i, '')
+      : '';
+
+  const existing = cart.find(i => i.name === name);
+
+  if (existing) {
+    // update quantity
+    existing.quantity =
+      (Number(existing.quantity) || 0) + Number(quantity || 1);
+
+    // repair old/broken image paths
+    if (existing.image && !existing.image.startsWith('images/')) {
+      existing.image = fixedImage;
     }
-    safeSave('cart', cart);
-    if (typeof updateCartBadge === 'function') {
-      try { updateCartBadge(); } catch (e) {}
-    }
+  } else {
+    // add new item
+    cart.push({
+      name,
+      image: fixedImage,
+      price: Number(price),
+      quantity: Number(quantity || 1)
+    });
   }
+
+  safeSave('cart', cart);
+
+  if (typeof updateCartBadge === 'function') {
+    try { updateCartBadge(); } catch (e) {}
+  }
+}
+
 
   /* ----------------------- Tiny toast (confirmation) ----------------------- */
 
